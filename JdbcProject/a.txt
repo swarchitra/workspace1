@@ -1,0 +1,6 @@
+
+create user 'visa'@'localhost' identified by 'secret';
+grant all privileges on *.* to 'visa'@'localhost';
+flush privileges;
+
+play old java obj POJO
