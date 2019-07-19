@@ -31,7 +31,10 @@ public class ShoppingCart extends HttpServlet {
 				session.setAttribute("selectedBikes", selectedBikes);
 				String[] selectedBooks = (String[]) session.getAttribute("selectedBooks");
 				String[] selectedCars = (String[]) session.getAttribute("selectedCars");
-				PrintWriter out = response.getWriter();
+				request.setAttribute("selectedBikes",selectedBikes);
+				request.getRequestDispatcher("cart_el.jsp").forward(request, response);
+				session.invalidate();
+			/*	PrintWriter out = response.getWriter();
 	            out.println("<html><body>");
 	            out.println("<h4>Selected Books</h4>");
 	            out.println("<ul>");
@@ -46,10 +49,10 @@ public class ShoppingCart extends HttpServlet {
 	            out.println("<h4>Selected Bikes</h4>");
 	            out.println("<ul>");
 	            Stream.of(selectedBikes).map(s->"<li>"+s+"</li>").forEach(out::println);
-	            out.println("</ul>");
+	            out.println("</ul>");*/
 	            
 	            
-	            out.println("</body></html>");session.invalidate();
+	            //out.println("</body></html>");session.invalidate();
 				
 				
 				
