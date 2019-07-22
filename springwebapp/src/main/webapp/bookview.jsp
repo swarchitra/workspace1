@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Available Books</h2>
-<form action="addbooks" method="get">
+<form action="addbook" method="get">
  Book 1<input type="checkbox" name="books" value="Book1"/><br>
  Book 2<input type="checkbox" name="books" value="Book2"/><br>
  Book 3<input type="checkbox" name="books" value="Book3"/><br>
