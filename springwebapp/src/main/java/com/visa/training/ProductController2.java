@@ -15,7 +15,7 @@ import com.visa.training.service.ProductService;
 
 @Controller
 
-public class ProductController {
+public class ProductController2 {
 	
 	//@Autowired <-- this can be used and no need of setter method
 	ProductService service;
