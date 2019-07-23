@@ -17,27 +17,27 @@ public class ProductConsoleUI {
 	public void setService(ProductService service) {
 		this.service = service;
 	}
-
-	public void createProductWithUI() {
-		Scanner kb = new Scanner(System.in);
-		System.out.println("Enter a name :");
-		String name = kb.nextLine();
-		System.out.println("Enter a price :");
-		float price = Float.parseFloat(kb.nextLine());
-		System.out.println("Enter a qoh :");
-		int qoh = Integer.parseInt(kb.nextLine());
-		kb.close();
+	public void createProductWithUI()
+	{
+		Scanner kb=new Scanner(System.in);
+		System.out.println("enter a name");
+		String name=kb.nextLine();
+		System.out.println("enter a price");
+		float price=kb.nextFloat();
+		System.out.println("enter the qoh");
+		int qoh=kb.nextInt();
 		
-		Product p = new Product(name, price, qoh);
-		
+		Product p=new Product(name,price,qoh);
 		
 		try {
-			int id = service.addNewProduct(p);
-			System.out.println("Product created with :"+id);
-		}catch(IllegalArgumentException e) {
+			int id=service.addNewProduct(p);
+			System.out.println("created product with id"+id);
+		}
+		catch(Exception e)
+		{
 			e.printStackTrace();
 		}
+			
+		
 	}
-	
-	
 }

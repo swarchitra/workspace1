@@ -5,53 +5,61 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.visa.training.bootproject.dal.ProductDAO;
+import com.visa.training.bootproject.dal.ProductRepository;
 import com.visa.training.bootproject.domain.Product;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService{
 
-	// Never do new on spring bean
-	
-	ProductDAO dao;
+	ProductRepository dao;
 	
 	@Autowired
-	// spring searches for a class implementing interface
-	public void setDao(ProductDAO dao) {
+	public void setDao(ProductRepository dao) {
 		this.dao = dao;
 	}
 
 	@Override
 	public int addNewProduct(Product p) {
-		if(p.getPrice() * p.getQoh() >= 10000) {
-			// only save
-			int id = 0;
-			Product created = dao.save(p); // loose coupling imple details not given explicit
-			id =  created.getId();
-			
-			return id;
-		}
-		throw new IllegalArgumentException("min value of stock should be 10K");
+		// TODO Auto-generated method stub
 		
+		int id=0;
+		if(p.getPrice()*p.getQoh()>=10000)
+		{
+			Product created=dao.save(p);
+			id=created.getId();
+			
+		}
+		else
+		{
+			throw new IllegalArgumentException("min value of stock should be atleast 10k");
+		}
+		return id;
 	}
 
 	@Override
 	public Product findById(int id) {
+		// TODO Auto-generated method stub
+		
 		return dao.findById(id);
-	}
-	
-	@Override
-	public List<Product> findAll() {
-		return dao.findAll();
 	}
 
 	@Override
-	public void deleteProduct(int id) {
-		Product p = dao.findById(id);
-		if(p.getPrice() * p.getQoh() < 1000) {
-			throw new IllegalArgumentException("can't remove when value > 1000");
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return dao.findAll();
 		}
-		
-		dao.remove(id);
+
+	@Override
+	public void deleteProduct(int id) {
+		// TODO Auto-generated method stub
+	
+		/*
+		 * if(p.getPrice()*p.getQoh()>1000) { throw new
+		 * IllegalArgumentException("cant remove when value>1000"); } else {
+		 * dao.remove(p); }
+		 */
+		dao.deleteById(id);
 	}
+
+	
 }

@@ -1,31 +1,36 @@
 package com.visa.training.bootproject.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table (name="product")
+@Table(name="product")
 public class Product {
-	
+
 	@Id
-	@Column (name = "product_id")
-	@GeneratedValue (strategy = GenerationType.IDENTITY) //unique and auto incremented
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="product_id")
 	int id;
 	
-	@Column (name = "product_name")
+	@Column(name="product_name")
 	String name;
 	
-	@Column (name = "product_price")
+	@Column(name="product_price")
 	float price;
 	
-	@Column (name = "product_qoh")
+	@Column(name="product_qoh")
 	int qoh;
 	
-	//JPA requires a no argument constructor
 	public Product() {
-	
+		
 	}
 
 	public Product(String name, float price, int qoh) {
+		super();
 		this.name = name;
 		this.price = price;
 		this.qoh = qoh;
@@ -69,6 +74,7 @@ public class Product {
 	}
 	
 	
+
 	
 	
 }
