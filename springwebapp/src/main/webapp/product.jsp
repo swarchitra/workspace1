@@ -37,12 +37,12 @@ th {
 </head>
 <body>
 	<h2>Enter values of the product..</h2>
-	<form action="createproduct" method="get">
-		<label>Product Name</label>: <input type="text" name="pname"/><br>
-		<label>Product Price</label>: <input type="text" name="pprice"/><br>
-		<label>Product QoH</label>: <input type="text" name="pqoh"/><br>
-		<input type="submit" value="create" name="create"/>
-	</form>
+<form:form method="POST"  commandName="product" >
+Name <form:input path="name" /> 
+Price <form:input path="price"/> <br>
+QoH <form:input path="qoh"/> <br>
+<input type="submit" value="Add">
+</form:form>
 
 <h4>Product</h4>
 <table border="2">
