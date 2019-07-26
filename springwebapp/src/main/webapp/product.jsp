@@ -37,7 +37,7 @@ th {
 </head>
 <body>
 	<h2>Enter values of the product..</h2>
-<form:form method="POST"  commandName="product" >
+<form:form method="POST" commandName="product" >
 Name <form:input path="name" /> 
 Price <form:input path="price"/> <br>
 QoH <form:input path="qoh"/> <br>
